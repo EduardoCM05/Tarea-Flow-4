@@ -1,0 +1,132 @@
+[
+    {
+        "id": "806fd3947f7de259",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e21fcb35a6fb98a9",
+        "type": "inject",
+        "z": "806fd3947f7de259",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "f2632a24c2ed61bf"
+            ]
+        ]
+    },
+    {
+        "id": "152463fe22bb5aa3",
+        "type": "mqtt out",
+        "z": "806fd3947f7de259",
+        "name": "",
+        "topic": "codigoIoT/SIC/flow3/temp",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6c1b1164bdc166fb",
+        "x": 660,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "f2632a24c2ed61bf",
+        "type": "function",
+        "z": "806fd3947f7de259",
+        "name": "",
+        "func": "msg.payload='{\"ID\":\"Eduardo Cortez\", \"Temp\":\"29.5\",\"mnsg\":\"Hola\"}'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 220,
+        "wires": [
+            [
+                "e12288114eed53db"
+            ]
+        ]
+    },
+    {
+        "id": "e12288114eed53db",
+        "type": "json",
+        "z": "806fd3947f7de259",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 430,
+        "y": 220,
+        "wires": [
+            [
+                "8df46fbfd2b4751c",
+                "152463fe22bb5aa3"
+            ]
+        ]
+    },
+    {
+        "id": "8df46fbfd2b4751c",
+        "type": "debug",
+        "z": "806fd3947f7de259",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "6c1b1164bdc166fb",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "3.66.119.222",
+        "port": "1883",
+        "clientid": "edd_cort051",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]
